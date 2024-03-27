@@ -4,6 +4,6 @@ import cv2
 expect = cv2.imread('./question/img/except.png')
 answer = cv2.imread('./app/build/outputs/roborazzi/com.github.nidroid.uiperfectcopycontesttest.ExampleUnitTest.yourAnswerTest.png')
 
-msssim_value = ssim(expect, answer, multichannel=True)
+msssim_value = ssim(expect, answer, channel_axis=3)
 
 print(f'MS-SSIM: {msssim_value}')
