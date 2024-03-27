@@ -30,7 +30,7 @@ internal fun YourAnswer() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
-                text = "example form",
+                text = "",
                 style = MaterialTheme.typography.headlineLarge,
             )
             OutlinedTextField(
