@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "cd ../.. && husky .score-view/ui-perfect-copy-contest/.husky",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
