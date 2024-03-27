@@ -33,6 +33,16 @@ jobs:
       - name: Calculate MS-SSIM
         run: python .score-calculation/calculate.py
 
+      - name: Calculate score
+        run: echo "result=$(python .score-calculation/calculate.py)" >> $GITHUB_ENV
+        
+      - name: Discord Notification
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+          webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+          message: ${{ env.result }}
+
       - name: Upload screenshot
         uses: actions/upload-artifact@v4
         with:
