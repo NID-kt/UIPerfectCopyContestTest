@@ -6,4 +6,4 @@ answer = cv2.imread('./app/build/outputs/roborazzi/com.github.nidroid.uiperfectc
 
 msssim_value = ssim(expect, answer, channel_axis=2)
 
-print(msssim_value)
+print(msssim_value * 100)
