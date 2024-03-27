@@ -1,7 +1,12 @@
 package com.github.nidroid.uiperfectcopycontesttest
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.width
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.unit.dp
+import com.github.nidroid.uiperfectcopycontesttest.ui.theme.UIPerfectCopyContestTestTheme
 import com.github.takahirom.roborazzi.captureRoboImage
 import org.junit.Rule
 import org.junit.Test
@@ -18,7 +23,11 @@ class ExampleUnitTest {
     @Test
     fun yourAnswerTest() {
         composeRule.setContent {
-            YourAnswer()
+            UIPerfectCopyContestTestTheme {
+                Box(Modifier.width(answerWidth.dp)) {
+                    YourAnswer()
+                }
+            }
         }
 
         composeRule

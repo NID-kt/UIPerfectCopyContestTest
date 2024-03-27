@@ -19,6 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.github.nidroid.uiperfectcopycontesttest.ui.theme.UIPerfectCopyContestTestTheme
 
+const val answerWidth = 300
+
 @Composable
 internal fun YourAnswer() {
     var name by remember { mutableStateOf("") }
@@ -45,7 +47,7 @@ internal fun YourAnswer() {
     }
 }
 
-@Preview
+@Preview(widthDp = answerWidth)
 @Composable
 private fun YourAnswerPreview() {
     UIPerfectCopyContestTestTheme {
