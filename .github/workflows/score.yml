@@ -42,6 +42,7 @@ jobs:
           webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
           webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
           message: "Result: ${{ env.result }} by @${{ github.actor }}"
+          file: "app/build/outputs/roborazzi/com.github.nidroid.uiperfectcopycontesttest.ExampleUnitTest.yourAnswerTest.png"
 
       - name: Upload screenshot
         uses: actions/upload-artifact@v4
