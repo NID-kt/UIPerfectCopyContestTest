@@ -1,17 +1,29 @@
 package com.github.nidroid.uiperfectcopycontesttest
 
+import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onRoot
+import com.github.takahirom.roborazzi.captureRoboImage
+import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.GraphicsMode
 
-import org.junit.Assert.*
-
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+@GraphicsMode(GraphicsMode.Mode.NATIVE)
+@RunWith(RobolectricTestRunner::class)
 class ExampleUnitTest {
+    @get:Rule
+    val composeRule = createComposeRule()
+
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun yourAnswerTest() {
+        composeRule.setContent {
+            YourAnswer()
+        }
+
+        composeRule
+            .onRoot()
+            .assertExists()
+            .captureRoboImage()
     }
 }
