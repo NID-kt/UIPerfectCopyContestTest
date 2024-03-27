@@ -28,10 +28,10 @@ jobs:
   
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r .score-calculation/requirements.txt
 
       - name: Calculate MS-SSIM
-        run: python calculate_msssim.py
+        run: python .score-calculation/calculate_msssim.py
 
       - name: Upload screenshot
         uses: actions/upload-artifact@v4
