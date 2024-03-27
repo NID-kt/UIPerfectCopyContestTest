@@ -30,6 +30,7 @@ class ExampleUnitTest {
     @get:Rule
     val composeRule = createComposeRule()
 
+    // TODO yourAnswerCaptureとかに変えたいけど差分取るところとかに影響出そうなので一旦このまま
     @Test
     fun yourAnswerTest() {
         composeRule.setContent {
@@ -40,6 +41,7 @@ class ExampleUnitTest {
             }
         }
 
+        // キャプチャ
         composeRule
             .onRoot()
             .assertExists()
