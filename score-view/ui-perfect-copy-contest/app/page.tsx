@@ -5,7 +5,7 @@ interface User {
   name: string;
   iconUrl: string;
   score: number;
-  submissionTime: string; // 提出時間を追加
+  submissionTime: string;
 }
 
 export default function Ranking() {
@@ -34,7 +34,7 @@ export default function Ranking() {
             <div className="ml-4">
               <span className={`font-bold ${index === 0 ? 'text-lg' : index < 3 ? 'text-lg' : 'text-md'} dark:text-white`}>{user.name}</span>
               <span className={`block ${index === 0 ? 'text-lg' : index < 3 ? 'text-md' : 'text-sm'} dark:text-gray-300`}>{user.score} 点</span>
-              <span className={`block ${index === 0 ? 'text-md' : index < 3 ? 'text-sm' : 'text-xs'} dark:text-gray-300`}>{user.submissionTime}</span>
+              <span className={`block ${index === 0 ? 'text-md' : index < 3 ? 'text-sm' : 'text-xs'} dark:text-gray-300`}>{user.submissionTime} 提出</span>
             </div>
             <span className={`ml-auto mr-4 font-bold ${index === 0 ? 'text-2xl' : index < 3 ? 'text-xl' : 'text-lg'} dark:text-white`}>{index + 1}位</span>
           </li>
