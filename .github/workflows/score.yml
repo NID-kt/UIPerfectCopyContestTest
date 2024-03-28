@@ -35,7 +35,7 @@ jobs:
           pip install -r score-calculation/requirements.txt
 
       - name: Calculate MS-SSIM
-        run: python .score-calculation/calculate.py
+        run: python score-calculation/calculate.py
 
       - name: Calculate score
         run: echo "result=$(python score-calculation/calculate.py)" >> $GITHUB_ENV
