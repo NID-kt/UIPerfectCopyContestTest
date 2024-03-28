@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Get current time
         id: current-time
-        run: echo "::set-output name=time::$(date -u +'%H:%M:%S' -d '+9 hours')"
+        run: echo "time=$(date -u +'%H:%M:%S' -d '+9 hours')" >> $GITHUB_OUTPUT
 
       - uses: actions/checkout@v4
 
