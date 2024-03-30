@@ -10,6 +10,13 @@ jobs:
         id: push-time
         run: echo "time=$(date -u +'%H:%M:%S' -d '+9 hours')" >> $GITHUB_OUTPUT
 
+      - name: Discord Push Notification
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+          webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+          message: "Push by @${{ github.actor }} at ${{ steps.push-time.outputs.time }}"
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -42,7 +49,7 @@ jobs:
         id: score
         run: echo "result=$(python score-calculation/calculate.py)" >> $GITHUB_OUTPUT
         
-      - name: Discord Notification
+      - name: Discord Score Notification
         uses: appleboy/discord-action@master
         with:
           webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
