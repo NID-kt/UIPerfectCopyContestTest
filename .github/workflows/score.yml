@@ -10,7 +10,8 @@ jobs:
         id: current-time
         run: echo "time=$(date -u +'%H:%M:%S' -d '+9 hours')" >> $GITHUB_OUTPUT
 
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
