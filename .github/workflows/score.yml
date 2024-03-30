@@ -6,8 +6,8 @@ jobs:
   calculate-score:
     runs-on: ubuntu-latest
     steps:
-      - name: Get current time
-        id: current-time
+      - name: Get push time
+        id: push-time
         run: echo "time=$(date -u +'%H:%M:%S' -d '+9 hours')" >> $GITHUB_OUTPUT
 
       - name: Checkout
@@ -47,7 +47,7 @@ jobs:
         with:
           webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
           webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-          message: "Result:${{ steps.score.outputs.result }} by @${{ github.actor }} at ${{ steps.current-time.outputs.time }}"
+          message: "Result:${{ steps.score.outputs.result }} by @${{ github.actor }} at ${{ steps.push-time.outputs.time }}"
           file: "question/img/except.png,app/build/outputs/roborazzi/com.github.nidroid.uiperfectcopycontesttest.ExampleUnitTest.yourAnswerTest.png"
 
       - name: Upload screenshot
