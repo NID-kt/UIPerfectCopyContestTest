@@ -45,6 +45,10 @@ jobs:
       - name: Calculate score
         id: score
         run: echo "result=$(python score-calculation/calculate.py)" >> $GITHUB_OUTPUT
+
+      - name: Output score
+        run: |
+          echo "Score: ${{ steps.score.outputs.result }}"
         
       - name: Discord Score Notification
         uses: appleboy/discord-action@master
