@@ -50,6 +50,8 @@ jobs:
       - name: Calculate score
         id: score
         run: echo "result=$(python score-calculation/calculate.py)" >> $GITHUB_OUTPUT
+        env:
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
 
       - name: Output score
         run: |
