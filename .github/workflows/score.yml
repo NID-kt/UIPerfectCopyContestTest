@@ -42,6 +42,11 @@ jobs:
         run: |
           pip install -r score-calculation/requirements.txt
 
+      - run: |
+          git clone https://github.com/k-taro56/vercel-storage.git
+          cd vercel-storage
+          pip install -e .
+   
       - name: Calculate score
         id: score
         run: echo "result=$(python score-calculation/calculate.py)" >> $GITHUB_OUTPUT
