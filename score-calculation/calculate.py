@@ -10,7 +10,8 @@ run_number = os.getenv('GITHUB_RUN_NUMBER')
 with open(file, 'rb') as fp:
     blob.put(
         pathname='api/v1/blob/' + actor + '/' + run_number + '.png',
-        body=fp.read()
+        body=fp.read(),
+      options={'no_suffix': None}
     )
 
 expect = cv2.imread('./question/img/except.png')
