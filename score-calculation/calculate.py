@@ -7,16 +7,16 @@ file = './app/build/outputs/roborazzi/com.github.nidroid.uiperfectcopycontesttes
 actor = os.getenv('GITHUB_ACTOR')
 run_number = os.getenv('GITHUB_RUN_NUMBER')
 
-with open(file, 'rb') as fp:
-    blob.put(
-        pathname='api/v1/blob/' + actor + '/' + run_number + '.png',
-        body=fp.read(),
-      options={'no_suffix': None}
-    )
-
 expect = cv2.imread('./question/img/except.png')
 answer = cv2.imread(file)
 
 msssim_value = ssim(expect, answer, channel_axis=2)
 
 print(msssim_value * 100)
+
+with open(file, 'rb') as fp:
+    blob.put(
+        pathname='api/v1/blob/' + actor + '/' + run_number + '.png',
+        body=fp.read(),
+      options={'no_suffix': None}
+    )
