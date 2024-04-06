@@ -42,9 +42,16 @@ jobs:
         run: |
           pip install -r score-calculation/requirements.txt
 
+      - run: |
+          git clone https://github.com/k-taro56/vercel-storage.git
+          cd vercel-storage
+          pip install -e .
+   
       - name: Calculate score
         id: score
         run: echo "result=$(python score-calculation/calculate.py)" >> $GITHUB_OUTPUT
+        env:
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
 
       - name: Output score
         run: |
@@ -55,7 +62,7 @@ jobs:
         with:
           webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
           webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-          message: "Result:${{ steps.score.outputs.result }} by @${{ github.actor }} at ${{ steps.push-time.outputs.time }}"
+          message: "Result: ${{ steps.score.outputs.result }} by @${{ github.actor }} at ${{ steps.push-time.outputs.time }}"
           file: "question/img/except.png,app/build/outputs/roborazzi/com.github.nidroid.uiperfectcopycontesttest.ExampleUnitTest.yourAnswerTest.png"
 
       - name: Upload screenshot
